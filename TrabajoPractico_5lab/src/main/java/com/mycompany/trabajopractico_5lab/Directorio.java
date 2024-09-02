@@ -12,16 +12,22 @@ import java.util.TreeMap;
  */
 public class Directorio {
     TreeMap<Long, Contacto> ListaCont;
-
+//constructor
     public Directorio() { ListaCont = new TreeMap< Long, Contacto>();
     }
 
- void agregarContacto(){
-     
+ void agregarContacto(Long tel, Contacto cont){
+     ListaCont.put(tel, cont);
  }   
- void buscarContacto(){
- 
+ Contacto buscarContacto(Long tel){
+ for(Long telef: ListaCont.keySet()){
+     if (telef == tel){
+         return ListaCont.get(tel);}
+ } 
+ return null;
  }
+
+ 
  void bucarTelefono(){
      
  }
