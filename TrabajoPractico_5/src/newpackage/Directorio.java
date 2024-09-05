@@ -29,7 +29,7 @@ public class Directorio {
     }
 
     public Contacto buscarContacto(Long tel) {
-        
+
         for (Long telef : ListaCont.keySet()) {
             if (telef == tel) {
                 return ListaCont.get(tel);
@@ -40,26 +40,28 @@ public class Directorio {
 
     public Set bucarTelefono(String ape) {
         Set<Long> listNumeros = new TreeSet<Long>();
-        
-        for (Map.Entry<Long,Contacto> entry: ListaCont.entrySet()) {
+
+        for (Map.Entry<Long, Contacto> entry : ListaCont.entrySet()) {
             if (entry.getValue().getApellido().equals(ape)) {
                 listNumeros.add(entry.getKey());
             }
         }
-        
-        
+
         return listNumeros;
     }
 
     public ArrayList buscarContactos(String ciu) {
         ArrayList<Contacto> listContacto = new ArrayList();
-        
+
         for (Contacto c : ListaCont.values()) {
             if (c.getCiudad().equals(ciu)) {
                 listContacto.add(c);
+
+                //*  if (ciu != null && ciu.equals(c.getCiudad())) { //Estuve viendo y leyendo algo de teoria 
+                //* listContacto.add(c);                    y se me ocurrio probar este metodo para que ciu no de nulo antes de comparar
             }
         }
-        
+
         return listContacto;
     }
 
