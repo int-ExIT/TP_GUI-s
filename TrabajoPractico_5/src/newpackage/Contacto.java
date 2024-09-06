@@ -9,13 +9,13 @@ package newpackage;
  * @author IK
  */
 public class Contacto {
-    int dni;
+    long dni;
     String Nombre;
     String Apellido;
     String Ciudad;
     String Direccion;
 
-    public Contacto(int dni, String Nombre, String Apellido, String Ciudad, String Direccion) {
+    public Contacto(long dni, String Nombre, String Apellido, String Ciudad, String Direccion) {
         this.dni = dni;
         this.Nombre = Nombre;
         this.Apellido = Apellido;
@@ -23,7 +23,7 @@ public class Contacto {
         this.Direccion = Direccion;
     }
 
-    public int getDni() {
+    public long getDni() {
         return dni;
     }
 
@@ -63,6 +63,5 @@ public class Contacto {
         this.Direccion = Direccion;
     }
     
-
     
 }

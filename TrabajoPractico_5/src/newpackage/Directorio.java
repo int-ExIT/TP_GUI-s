@@ -24,6 +24,14 @@ public class Directorio {
         ListaCont = new TreeMap< Long, Contacto>();
     }
 
+    public TreeMap<Long, Contacto> getListaCont() {
+        return ListaCont;
+    }
+
+    public void setListaCont(TreeMap<Long, Contacto> ListaCont) {
+        this.ListaCont = ListaCont;
+    }
+    
     public void agregarContacto(Long tel, Contacto cont) {
         ListaCont.put(tel, cont);
     }
@@ -64,8 +72,8 @@ public class Directorio {
     }
 
     //Quedamos para debatir
-    public void borrarContacto(Long tel) {
-        ListaCont.remove(tel);
+    public Contacto borrarContacto(Long tel) {
+        return ListaCont.remove(tel);
     }
 
 
