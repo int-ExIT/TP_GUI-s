@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package actividad_2.administracion;
+package Act6_punt2;
 
 /**
  *
  * @author santi
  */
-public class GestionProducto extends javax.swing.JInternalFrame {
+public class GestiorIJF extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Gestoria
      */
-    public GestionProducto() {
+    public GestiorIJF() {
         initComponents();
     }
 
