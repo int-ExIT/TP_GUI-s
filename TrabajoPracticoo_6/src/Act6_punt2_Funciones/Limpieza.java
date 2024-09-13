@@ -1,23 +1,21 @@
 package Act6_punt2_Funciones;
 
-import java.util.Objects;
-
 public class Limpieza extends Producto {
-    private Integer codigo;
+    private Integer precio;
     private Integer stock;
 
-    public Limpieza(String nombre, Integer precio, Integer codigo, Integer stock) {
-        super(nombre, precio);
-        this.codigo = codigo;
+    public Limpieza(String nombre, Integer codigo, Integer precio, Integer stock) {
+        super(nombre, codigo);
+        this.precio = precio;
         this.stock = stock;
     }
 
-    public Integer getCodigo() {
-        return codigo;
+    public Integer getPrecio() {
+        return precio;
     }
 
-    public void setCodigo(Integer codigo) {
-        this.codigo = codigo;
+    public void setPrecio(Integer precio) {
+        this.precio = precio;
     }
 
     public Integer getStock() {
@@ -29,33 +27,7 @@ public class Limpieza extends Producto {
     }
 
     @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 73 * hash + Objects.hashCode(this.codigo);
-        hash = 73 * hash + Objects.hashCode(this.stock);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Limpieza other = (Limpieza) obj;
-        if (!Objects.equals(this.codigo, other.codigo)) {
-            return false;
-        }
-        return Objects.equals(this.stock, other.stock);
-    }
-
-    @Override
     public String toString() {
-        return super.toString() + "\nCodigo: " + codigo + "\nStock: " + stock;
+        return super.toString() + "\nPrecio: " + precio + "\nStock: " + stock + "\n";
     }
 }

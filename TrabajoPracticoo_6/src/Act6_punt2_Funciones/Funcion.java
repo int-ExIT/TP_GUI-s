@@ -33,14 +33,14 @@ public class Funcion {
     }
     
     public static void crearObjeto() {
+        String[] TIPO = new String[] {"A", "B", "C", "D", "E"};
+        
+        Producto producto = new Producto();
         String nombre = "";
         String tipo = "";
         Integer codigo = 0;
         Integer precio = 0;
         Integer stock = 0;
-        Producto producto = new Producto();
-        
-        String[] TIPO = new String[] {"A", "B", "C", "D", "E"};
         
         for (String dato : datos) {
             for (String letra : TIPO) {
