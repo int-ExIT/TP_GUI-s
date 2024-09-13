@@ -1,18 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package TP6_pt1;
 
-/**
- *
- * @author IK
- */
 public class ObjetoProducto {
 
     private String nombre;
     private String categoria;
-    private double precio;
+    private Double precio;
 
     public ObjetoProducto() {
     }
