@@ -30,7 +30,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="panelPrincipal" min="-2" max="-2" attributes="0"/>
+          <Component id="panelPrincipal" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -45,7 +45,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -68,12 +68,12 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="Label_5" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="Spinner_1" min="-2" pref="82" max="-2" attributes="0"/>
+                                          <Component id="stockJS" min="-2" pref="82" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <Component id="Label_4" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="Texto_3" min="-2" pref="161" max="-2" attributes="0"/>
+                                          <Component id="precioJTF" min="-2" pref="161" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -82,25 +82,25 @@
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="Texto_2" min="-2" pref="161" max="-2" attributes="0"/>
-                                              <Component id="Combo_1" min="-2" pref="161" max="-2" attributes="0"/>
+                                              <Component id="nombreJTF" min="-2" pref="161" max="-2" attributes="0"/>
+                                              <Component id="tipoJCB" min="-2" pref="161" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="Label_1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Component id="Texto_1" max="32767" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="codigoJTF" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="jScrollPane1" min="-2" pref="347" max="-2" attributes="0"/>
-                  <EmptySpace pref="42" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="383" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -116,27 +116,27 @@
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="Label_1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="Texto_1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="codigoJTF" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Texto_2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="nombreJTF" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="Label_2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Combo_1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tipoJCB" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="Label_3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Spinner_1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="stockJS" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="Label_5" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="Label_4" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="Texto_3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="precioJTF" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -150,7 +150,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -178,7 +178,7 @@
             <Property name="text" type="java.lang.String" value="Nombre:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="Texto_1">
+        <Component class="javax.swing.JTextField" name="codigoJTF">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -187,9 +187,10 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="A"/>
+            <Property name="name" type="java.lang.String" value="codigo" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="Texto_2">
+        <Component class="javax.swing.JTextField" name="nombreJTF">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -198,6 +199,7 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="B"/>
+            <Property name="name" type="java.lang.String" value="nombre" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="Boton_Eliminar">
@@ -217,7 +219,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Boton_EliminarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="Combo_1">
+        <Component class="javax.swing.JComboBox" name="tipoJCB">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -233,14 +235,16 @@
               </StringArray>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="C"/>
+            <Property name="name" type="java.lang.String" value="tipo" noResource="true"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JSpinner" name="Spinner_1">
+        <Component class="javax.swing.JSpinner" name="stockJS">
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="D"/>
+            <Property name="name" type="java.lang.String" value="stock" noResource="true"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -303,7 +307,7 @@
             <Property name="text" type="java.lang.String" value="Precio:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="Texto_3">
+        <Component class="javax.swing.JTextField" name="precioJTF">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -312,6 +316,7 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="E"/>
+            <Property name="name" type="java.lang.String" value="precio" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="Label_5">

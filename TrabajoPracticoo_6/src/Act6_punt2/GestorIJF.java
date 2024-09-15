@@ -1,9 +1,16 @@
 package Act6_punt2;
 
-public class GestiorIJF extends javax.swing.JInternalFrame {
+import Act6_punt2_Funciones.Funcion;
+import java.awt.HeadlessException;
+import javax.swing.JOptionPane;
 
-    public GestiorIJF() {
+public class GestorIJF extends javax.swing.JInternalFrame {
+
+    public GestorIJF() {
         initComponents();
+        
+        Funcion.setColum(tablaGestorJT);
+        Funcion.cargarFuncion();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -46,6 +53,11 @@ public class GestiorIJF extends javax.swing.JInternalFrame {
         FiltrarJL.setText("Filtrar por Categoria:");
 
         filtrarJCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comestible", "Limpieza", "Perfumeria" }));
+        filtrarJCB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                filtrarJCBActionPerformed(evt);
+            }
+        });
 
         tablaGestorJT.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -83,7 +95,16 @@ public class GestiorIJF extends javax.swing.JInternalFrame {
         StockJL.setForeground(new java.awt.Color(204, 204, 204));
         StockJL.setText("Stock:");
 
+        nombreJTF.setName("nombre"); // NOI18N
+
+        codigoJTF.setName("codigo"); // NOI18N
+
+        precioJTF.setName("precio"); // NOI18N
+
         rubroJCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comestible", "Limpieza", "Perfumeria" }));
+        rubroJCB.setName("tipo"); // NOI18N
+
+        stockJSp.setName("stock"); // NOI18N
 
         javax.swing.GroupLayout PanelDeDatosJPLayout = new javax.swing.GroupLayout(PanelDeDatosJP);
         PanelDeDatosJP.setLayout(PanelDeDatosJPLayout);
@@ -135,10 +156,17 @@ public class GestiorIJF extends javax.swing.JInternalFrame {
 
         buscarJB.setBackground(new java.awt.Color(51, 51, 255));
         buscarJB.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        buscarJB.setForeground(new java.awt.Color(255, 255, 255));
         buscarJB.setText("Buscar");
+        buscarJB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarJBActionPerformed(evt);
+            }
+        });
 
         eliminarJB.setBackground(new java.awt.Color(255, 51, 51));
         eliminarJB.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        eliminarJB.setForeground(new java.awt.Color(255, 255, 255));
         eliminarJB.setText("Eliminar");
         eliminarJB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,10 +176,17 @@ public class GestiorIJF extends javax.swing.JInternalFrame {
 
         guardarJB.setBackground(new java.awt.Color(51, 51, 255));
         guardarJB.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        guardarJB.setForeground(new java.awt.Color(255, 255, 255));
         guardarJB.setText("Guardar");
+        guardarJB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarJBActionPerformed(evt);
+            }
+        });
 
         renombrarJB.setBackground(new java.awt.Color(51, 51, 255));
         renombrarJB.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        renombrarJB.setForeground(new java.awt.Color(255, 255, 255));
         renombrarJB.setText("Renombrar");
         renombrarJB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,14 +257,66 @@ public class GestiorIJF extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void eliminarJBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarJBActionPerformed
+    private void buscarJBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarJBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_eliminarJBActionPerformed
+        boolean resultado = Funcion.buscarObjeto(codigoJTF, nombreJTF, rubroJCB);
+        
+        try {
+            if (resultado) {
+                Funcion.resetTable(tablaGestorJT);
+                Funcion.setRow(tablaGestorJT);
+            }else JOptionPane.showMessageDialog(rootPane, "No hay resultados para la busqueda.");
+
+            if (Funcion.getFLAG() < 0) Funcion.modificarObjeto(PanelDeDatosJP, buscarJB, guardarJB, eliminarJB, codigoJTF);
+        }catch (NumberFormatException ex) {
+        }
+    }//GEN-LAST:event_buscarJBActionPerformed
+
+    private void guardarJBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarJBActionPerformed
+        // TODO add your handling code here:
+        try {
+            Funcion.capturarCampos(PanelDeDatosJP);
+            Funcion.crearObjeto();
+
+            if (Funcion.getFLAG() < 0) Funcion.modificarObjeto(PanelDeDatosJP, buscarJB, guardarJB, eliminarJB, codigoJTF);
+            else JOptionPane.showMessageDialog(rootPane, "El producto se a cargado con exito.");
+        }catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Ingrese los datos con los valores requeridos.");
+        }
+    }//GEN-LAST:event_guardarJBActionPerformed
 
     private void renombrarJBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_renombrarJBActionPerformed
         // TODO add your handling code here:
+        Funcion.modificarObjeto(PanelDeDatosJP, buscarJB, guardarJB, eliminarJB, codigoJTF);
     }//GEN-LAST:event_renombrarJBActionPerformed
 
+    private void eliminarJBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarJBActionPerformed
+        // TODO add your handling code here:
+        try {
+            if (Funcion.getFLAG() < 0) Funcion.modificarObjeto(PanelDeDatosJP, buscarJB, guardarJB, eliminarJB, codigoJTF);
+            else if (!codigoJTF.getText().equals("")) {
+                Funcion.buscarObjeto(codigoJTF, nombreJTF, rubroJCB);
+                Funcion.eliminarObjeto();
+                
+                JOptionPane.showMessageDialog(rootPane, "Producto eliminado.");
+            }else JOptionPane.showMessageDialog(rootPane, "Para eliminar primero ingrese el codigo");
+        }catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Valor ingresado incorrecto. Solo numeros.");
+        }
+        Funcion.capturarCampos(PanelDeDatosJP);
+    }//GEN-LAST:event_eliminarJBActionPerformed
+
+    private void filtrarJCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtrarJCBActionPerformed
+        // TODO add your handling code here:
+        Funcion.setFLAG(2);
+        
+        Funcion.buscarObjeto(codigoJTF, nombreJTF, filtrarJCB);
+        
+        Funcion.resetTable(tablaGestorJT);
+        Funcion.setRow(tablaGestorJT);
+        
+        Funcion.setFLAG(0);
+    }//GEN-LAST:event_filtrarJCBActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CodigoJL;

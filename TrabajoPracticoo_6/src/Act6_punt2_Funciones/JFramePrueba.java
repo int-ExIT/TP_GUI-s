@@ -5,6 +5,9 @@ public class JFramePrueba extends javax.swing.JFrame {
     public JFramePrueba() {
         initComponents();
         setLocationRelativeTo(null);
+        
+        Funcion.setColum(jTable1);
+        Funcion.cargarFuncion();
     }
 
     @SuppressWarnings("unchecked")
@@ -14,17 +17,17 @@ public class JFramePrueba extends javax.swing.JFrame {
         panelPrincipal = new javax.swing.JPanel();
         Label_1 = new javax.swing.JLabel();
         Label_2 = new javax.swing.JLabel();
-        Texto_1 = new javax.swing.JTextField();
-        Texto_2 = new javax.swing.JTextField();
+        codigoJTF = new javax.swing.JTextField();
+        nombreJTF = new javax.swing.JTextField();
         Boton_Eliminar = new javax.swing.JButton();
-        Combo_1 = new javax.swing.JComboBox<>();
-        Spinner_1 = new javax.swing.JSpinner();
+        tipoJCB = new javax.swing.JComboBox<>();
+        stockJS = new javax.swing.JSpinner();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         Boton_Guardar = new javax.swing.JButton();
         Label_3 = new javax.swing.JLabel();
         Label_4 = new javax.swing.JLabel();
-        Texto_3 = new javax.swing.JTextField();
+        precioJTF = new javax.swing.JTextField();
         Label_5 = new javax.swing.JLabel();
         Boton_Buscar = new javax.swing.JButton();
         Boton_Renombrar = new javax.swing.JButton();
@@ -43,13 +46,15 @@ public class JFramePrueba extends javax.swing.JFrame {
         Label_2.setForeground(new java.awt.Color(255, 255, 255));
         Label_2.setText("Nombre:");
 
-        Texto_1.setBackground(new java.awt.Color(255, 255, 255));
-        Texto_1.setForeground(new java.awt.Color(0, 0, 0));
-        Texto_1.setToolTipText("A");
+        codigoJTF.setBackground(new java.awt.Color(255, 255, 255));
+        codigoJTF.setForeground(new java.awt.Color(0, 0, 0));
+        codigoJTF.setToolTipText("A");
+        codigoJTF.setName("codigo"); // NOI18N
 
-        Texto_2.setBackground(new java.awt.Color(255, 255, 255));
-        Texto_2.setForeground(new java.awt.Color(0, 0, 0));
-        Texto_2.setToolTipText("B");
+        nombreJTF.setBackground(new java.awt.Color(255, 255, 255));
+        nombreJTF.setForeground(new java.awt.Color(0, 0, 0));
+        nombreJTF.setToolTipText("B");
+        nombreJTF.setName("nombre"); // NOI18N
 
         Boton_Eliminar.setBackground(new java.awt.Color(255, 0, 0));
         Boton_Eliminar.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
@@ -61,12 +66,14 @@ public class JFramePrueba extends javax.swing.JFrame {
             }
         });
 
-        Combo_1.setBackground(new java.awt.Color(255, 255, 255));
-        Combo_1.setForeground(new java.awt.Color(0, 0, 0));
-        Combo_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comestible", "Limpieza", "Perfumeria" }));
-        Combo_1.setToolTipText("C");
+        tipoJCB.setBackground(new java.awt.Color(255, 255, 255));
+        tipoJCB.setForeground(new java.awt.Color(0, 0, 0));
+        tipoJCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comestible", "Limpieza", "Perfumeria" }));
+        tipoJCB.setToolTipText("C");
+        tipoJCB.setName("tipo"); // NOI18N
 
-        Spinner_1.setToolTipText("D");
+        stockJS.setToolTipText("D");
+        stockJS.setName("stock"); // NOI18N
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -99,9 +106,10 @@ public class JFramePrueba extends javax.swing.JFrame {
         Label_4.setForeground(new java.awt.Color(255, 255, 255));
         Label_4.setText("Precio:");
 
-        Texto_3.setBackground(new java.awt.Color(255, 255, 255));
-        Texto_3.setForeground(new java.awt.Color(0, 0, 0));
-        Texto_3.setToolTipText("E");
+        precioJTF.setBackground(new java.awt.Color(255, 255, 255));
+        precioJTF.setForeground(new java.awt.Color(0, 0, 0));
+        precioJTF.setToolTipText("E");
+        precioJTF.setName("precio"); // NOI18N
 
         Label_5.setFont(new java.awt.Font("sansserif", 1, 17)); // NOI18N
         Label_5.setForeground(new java.awt.Color(255, 255, 255));
@@ -151,28 +159,28 @@ public class JFramePrueba extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelPrincipalLayout.createSequentialGroup()
                                         .addComponent(Label_5)
                                         .addGap(18, 18, 18)
-                                        .addComponent(Spinner_1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(stockJS, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(panelPrincipalLayout.createSequentialGroup()
                                         .addComponent(Label_4)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(Texto_3, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(precioJTF, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelPrincipalLayout.createSequentialGroup()
                                         .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(Label_3)
                                             .addComponent(Label_2))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(Texto_2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(Combo_1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGap(24, 24, 24))
+                                            .addComponent(nombreJTF, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tipoJCB, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE))
                     .addGroup(panelPrincipalLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(Label_1)
                         .addGap(12, 12, 12)
-                        .addComponent(Texto_1)
-                        .addGap(18, 18, 18)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                        .addComponent(codigoJTF)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         panelPrincipalLayout.setVerticalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,23 +193,23 @@ public class JFramePrueba extends javax.swing.JFrame {
                         .addGap(24, 24, 24)
                         .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Label_1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Texto_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(codigoJTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, Short.MAX_VALUE)
                         .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Texto_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nombreJTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Label_2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Combo_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tipoJCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Label_3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Spinner_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(stockJS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Label_5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(12, 12, 12)
                         .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Label_4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Texto_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(precioJTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Boton_Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -210,7 +218,7 @@ public class JFramePrueba extends javax.swing.JFrame {
                         .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Boton_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Boton_Renombrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(36, 36, 36))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -221,36 +229,37 @@ public class JFramePrueba extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void Boton_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_EliminarActionPerformed
-        if (Funcion.getFLAG() != 0) Funcion.modificarObjeto(panelPrincipal, Boton_Buscar, Boton_Guardar, Boton_Eliminar, Texto_1);
+        if (Funcion.getFLAG() != 0) Funcion.modificarObjeto(panelPrincipal, Boton_Buscar, Boton_Guardar, Boton_Eliminar, codigoJTF);
         
-        Funcion.capturarCampos(panelPrincipal);
+//        Funcion.capturarCampos(panelPrincipal);
     }//GEN-LAST:event_Boton_EliminarActionPerformed
 
     private void Boton_GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_GuardarActionPerformed
         Funcion.capturarCampos(panelPrincipal);
-        Funcion.setearValores();
+        Funcion.crearObjeto();
         
-        if (Funcion.getFLAG() == 0) Funcion.crearObjeto();
-        else Funcion.modificarObjeto(panelPrincipal, Boton_Buscar, Boton_Guardar, Boton_Eliminar, Texto_1);
+        if (Funcion.getFLAG() != 0) Funcion.modificarObjeto(panelPrincipal, Boton_Buscar, Boton_Guardar, Boton_Eliminar, codigoJTF);
         
-        System.out.println(Funcion.getProductos().toString());
+        System.out.println("\n" + Funcion.getProductos().toString());
     }//GEN-LAST:event_Boton_GuardarActionPerformed
 
     private void Boton_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_BuscarActionPerformed
-        Funcion.buscarObjeto(Texto_1);
+        Funcion.buscarObjeto(codigoJTF, nombreJTF, tipoJCB);
+        Funcion.resetTable(jTable1);
+        Funcion.setRow(jTable1);
         
-        if (Funcion.getFLAG() != 0) Funcion.modificarObjeto(panelPrincipal, Boton_Buscar, Boton_Guardar, Boton_Eliminar, Texto_1);
+        if (Funcion.getFLAG() != 0) Funcion.modificarObjeto(panelPrincipal, Boton_Buscar, Boton_Guardar, Boton_Eliminar, codigoJTF);
     }//GEN-LAST:event_Boton_BuscarActionPerformed
 
     private void Boton_RenombrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_RenombrarActionPerformed
-        Funcion.modificarObjeto(panelPrincipal, Boton_Buscar, Boton_Guardar, Boton_Eliminar, Texto_1);
+        Funcion.modificarObjeto(panelPrincipal, Boton_Buscar, Boton_Guardar, Boton_Eliminar, codigoJTF);
     }//GEN-LAST:event_Boton_RenombrarActionPerformed
 
     public static void main(String args[]) {
@@ -283,18 +292,18 @@ public class JFramePrueba extends javax.swing.JFrame {
     private javax.swing.JButton Boton_Eliminar;
     private javax.swing.JButton Boton_Guardar;
     private javax.swing.JButton Boton_Renombrar;
-    private javax.swing.JComboBox<String> Combo_1;
     private javax.swing.JLabel Label_1;
     private javax.swing.JLabel Label_2;
     private javax.swing.JLabel Label_3;
     private javax.swing.JLabel Label_4;
     private javax.swing.JLabel Label_5;
-    private javax.swing.JSpinner Spinner_1;
-    private javax.swing.JTextField Texto_1;
-    private javax.swing.JTextField Texto_2;
-    private javax.swing.JTextField Texto_3;
+    private javax.swing.JTextField codigoJTF;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField nombreJTF;
     private javax.swing.JPanel panelPrincipal;
+    private javax.swing.JTextField precioJTF;
+    private javax.swing.JSpinner stockJS;
+    private javax.swing.JComboBox<String> tipoJCB;
     // End of variables declaration//GEN-END:variables
 }
