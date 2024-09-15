@@ -6,13 +6,16 @@ public class Producto implements Comparable<Producto> {
     
     private String nombre;
     private Integer codigo;
+    private Long precio;
+    private String tipo;
+    private Integer stock;
 
-    public Producto(String nombre, Integer codigo) {
+    public Producto(String nombre, Integer codigo, Long precio, String tipo, Integer stock) {
         this.nombre = nombre;
         this.codigo = codigo;
-    }
-
-    public Producto() {
+        this.precio = precio;
+        this.tipo = tipo;
+        this.stock = stock;
     }
 
     public String getNombre() {
@@ -31,11 +34,38 @@ public class Producto implements Comparable<Producto> {
         this.codigo = codigo;
     }
 
+    public Long getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Long precio) {
+        this.precio = precio;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public Integer getStock() {
+        return stock;
+    }
+
+    public void setStock(Integer stock) {
+        this.stock = stock;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 19 * hash + Objects.hashCode(this.nombre);
-        hash = 19 * hash + Objects.hashCode(this.codigo);
+        int hash = 5;
+        hash = 53 * hash + Objects.hashCode(this.nombre);
+        hash = 53 * hash + Objects.hashCode(this.codigo);
+        hash = 53 * hash + Objects.hashCode(this.precio);
+        hash = 53 * hash + Objects.hashCode(this.tipo);
+        hash = 53 * hash + Objects.hashCode(this.stock);
         return hash;
     }
 
@@ -54,17 +84,26 @@ public class Producto implements Comparable<Producto> {
         if (!Objects.equals(this.nombre, other.nombre)) {
             return false;
         }
-        return Objects.equals(this.codigo, other.codigo);
-    }
-
-    @Override
-    public String toString() {
-        return "\nProducto: \nNombre=: " + nombre + "\nCodigo: " + codigo;
+        if (!Objects.equals(this.tipo, other.tipo)) {
+            return false;
+        }
+        if (!Objects.equals(this.codigo, other.codigo)) {
+            return false;
+        }
+        if (!Objects.equals(this.precio, other.precio)) {
+            return false;
+        }
+        return Objects.equals(this.stock, other.stock);
     }
 
     @Override
     public int compareTo(Producto t) {
         return this.getCodigo() - t.getCodigo();
+    }
+
+    @Override
+    public String toString() {
+        return "Producto: \nNombre: " + nombre + "\nCodigo: " + codigo + "\nPrecio: " + precio + "\nTipo: " + tipo + "\nStock: " + stock;
     }
     
 }
