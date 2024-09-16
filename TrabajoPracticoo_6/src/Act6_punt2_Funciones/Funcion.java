@@ -15,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class Funcion {
     
+    
     private static final Set<Producto> productos = new TreeSet();
     private static final ArrayList<Caps> box = new ArrayList();
     private static final ArrayList<Producto> productoEncontrado = new ArrayList();
@@ -137,9 +138,6 @@ public class Funcion {
         productoEncontrado.clear();
         boolean resultado = false;
         
-        int precioMin = 0;
-        int precioMax = 0;
-        
         for (Producto producto : productos) {
             switch (FLAG) {
                 case 1 -> {
@@ -155,13 +153,6 @@ public class Funcion {
                     String categoriaBusqueda = categoria.getSelectedItem().toString();
                     
                     if (producto.getTipo().equals(categoriaBusqueda)) {
-                        productoEncontrado.add(producto);
-
-                        resultado = true;
-                    }
-                }
-                case 3 -> {
-                    if (producto.getPrecio() > precioMin && producto.getPrecio() < precioMax) {
                         productoEncontrado.add(producto);
 
                         resultado = true;
