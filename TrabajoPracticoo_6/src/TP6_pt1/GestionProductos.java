@@ -43,9 +43,15 @@ public class GestionProductos extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 51, 51));
 
+        jPanel1.setBackground(new java.awt.Color(153, 255, 153));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
+        Tabla.setBackground(new java.awt.Color(204, 255, 204));
+        Tabla.setForeground(new java.awt.Color(0, 0, 0));
         Tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -97,7 +103,7 @@ public class GestionProductos extends javax.swing.JFrame {
                             .addComponent(cboCategoria, 0, 135, Short.MAX_VALUE)
                             .addComponent(txtNombre)
                             .addComponent(txtPrecio))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
                         .addComponent(JBagregar)
                         .addGap(29, 29, 29))))
         );
