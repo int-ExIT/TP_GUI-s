@@ -25,39 +25,51 @@ public class Funcion {
     private static DefaultTableModel mTabla;
     
     
+    public static Boolean checkField(JPanel panel) {
+        Boolean flag = false;
+
+        for (Component component : panel.getComponents()) {
+            if (component instanceof JTextField jTextField) {
+                flag = !jTextField.getText().equals("");
+            }
+        }
+
+        return flag;
+    }
+    
     public static void capturarCampos(JPanel panel) {
-        String nombre = "";
-        String dato = "";
         box.clear();
         
+        String nombre = "";
+        String dato = "";
+        
         for (Component componente : panel.getComponents()) {
+            
             switch (componente) {
                 case JTextField texto -> {
-                    if (!texto.getText().equals("")) {
-                        nombre = texto.getName();
-                        dato = texto.getText();
-                        
-                        texto.setText("");
-                    }
+                    nombre = texto.getName();
+                    dato = texto.getText();
+
+                    texto.setText("");
+                }
+                case JSpinner spinner -> {
+                    nombre = spinner.getName();
+                    dato = spinner.getValue().toString();
+
+                    spinner.setValue(0);
                 }
                 case JComboBox combo -> {
                     nombre = combo.getName();
-                    dato = (String)combo.getSelectedItem();
-                }
-                case JSpinner spinner -> {
-                    if (!spinner.getValue().toString().equals("0")) {
-                        nombre = spinner.getName();
-                        dato = spinner.getValue().toString();
 
-                        spinner.setValue(0);
-                    }
+                    dato = (String)combo.getSelectedItem();
                 }
                 default ->{
                 }
             }
             
-            if (!nombre.equals(null)) {
+            if (!dato.equals("")) {
                 Caps caps = new Caps(nombre, dato);
+                
                 box.add(caps);
             }
         }
@@ -92,12 +104,17 @@ public class Funcion {
             }
         }
         
+        productoEncontrado.clear();
+        
         if (FLAG == 0) {
             Producto producto = new Producto(nom, codigo, precio, tipo, stock);
             productos.add(producto);
+            
+            productoEncontrado.add(producto);
         }else {
             for (Producto producto : productos) {
                 if (producto.getCodigo() == codigoBusqueda) {
+                    
                     if (!nom.equals("")) producto.setNombre(nom);
                     
                     if (codigo != 0) producto.setCodigo(codigo);
@@ -107,6 +124,8 @@ public class Funcion {
                     if (stock != -1) producto.setStock(stock);
                     
                     producto.setTipo(tipo);
+                    
+                    productoEncontrado.add(producto);
                 }
             }
         }
@@ -210,10 +229,12 @@ public class Funcion {
     public static void setColum(JTable tabla) {
         mTabla = new DefaultTableModel() {
             public boolean celdaEditable(int fila, int col) {
+                
                 return false;
             }
         };
 
+        mTabla.addColumn("N°");
         mTabla.addColumn("Codigo");
         mTabla.addColumn("Nombre");
         mTabla.addColumn("Tipo");
@@ -224,8 +245,18 @@ public class Funcion {
     }
     
     public static void setRow(JTable tabla) {
+        if (FLAG == 4) {
+            productoEncontrado.addAll(productos);
+            
+            FLAG = 0;
+        }
+        
+        Integer cont = 0;
+        
         for (Producto producto : productoEncontrado) {
+            cont++;
             mTabla.addRow(new Object[]{
+                cont,
                 producto.getCodigo(),
                 producto.getNombre(),
                 producto.getTipo(),
@@ -257,7 +288,7 @@ public class Funcion {
         Funcion.FLAG = FLAG;
     }
     
-    private static void color(JPanel panel) {
+    public static void color(JPanel panel) {
         for (Component component : panel.getComponents()) {
             switch (component) {
                 case JTextField texto -> {
@@ -283,9 +314,21 @@ public class Funcion {
         Producto p1 = new Producto("Lavandina", 15231, 2500L, "Limpieza", 5);
         Producto p2 = new Producto("Jabon", 15232, 700L, "Limpieza", 10);
         Producto p3 = new Producto("Costeletas", 15233, 4500L, "Comestible", 11);
-        Producto p4 = new Producto("Paco", 15234, 2300L, "Perfumeria", 28);
+        Producto p4 = new Producto("Talco", 15234, 2300L, "Perfumeria", 28);
         Producto p5 = new Producto("Bondiola", 15235, 4000L, "Comestible", 8);
         Producto p6 = new Producto("Antitraspirante", 15236, 2700L, "Perfumeria", 37);
+        Producto p7 = new Producto("Detergente", 15237, 1000L, "Limpieza", 3);
+        Producto p8 = new Producto("Asado", 15238, 5000L, "Comestible", 15);
+        Producto p9 = new Producto("Esmalte", 15239, 500L, "Perfumeria", 9);
+        Producto p10 = new Producto("Dior", 15240, 6000L, "Perfumeria", 3);
+        Producto p11 = new Producto("Lechuga", 15241, 400L, "Comestible", 20);
+        Producto p12 = new Producto("Palta", 152342, 3000L, "Comestible", 9);
+        Producto p13 = new Producto("Cepillo Dientes", 15243, 1200L, "Limpieza", 30);
+        Producto p14 = new Producto("Brilla Piso", 15244, 1700L, "Limpieza", 10);
+        Producto p15 = new Producto("Costillas", 15245, 5500L, "Comestible", 11);
+        Producto p16 = new Producto("Shampoo", 15246, 2300L, "Limpieza", 18);
+        Producto p17 = new Producto("Tomate", 15247, 1000L, "Comestible", 8);
+        Producto p18 = new Producto("Zanahoria", 15248, 700L, "Comestible", 17);
         
         productos.add(p1);
         productos.add(p2);
@@ -293,5 +336,17 @@ public class Funcion {
         productos.add(p4);
         productos.add(p5);
         productos.add(p6);
+        productos.add(p7);
+        productos.add(p8);
+        productos.add(p9);
+        productos.add(p10);
+        productos.add(p11);
+        productos.add(p12);
+        productos.add(p13);
+        productos.add(p14);
+        productos.add(p15);
+        productos.add(p16);
+        productos.add(p17);
+        productos.add(p18);
     }
 }

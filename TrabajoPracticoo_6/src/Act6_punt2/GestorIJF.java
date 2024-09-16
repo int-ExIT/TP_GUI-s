@@ -1,7 +1,6 @@
 package Act6_punt2;
 
 import Act6_punt2_Funciones.Funcion;
-import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
 public class GestorIJF extends javax.swing.JInternalFrame {
@@ -61,16 +60,31 @@ public class GestorIJF extends javax.swing.JInternalFrame {
 
         tablaGestorJT.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "N°", "Codigo", "Nombre", "Precio", "Rubro", "Stock"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true, true, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tablaGestorJT);
+        if (tablaGestorJT.getColumnModel().getColumnCount() > 0) {
+            tablaGestorJT.getColumnModel().getColumn(0).setMaxWidth(24);
+        }
 
         PanelDeDatosJP.setBackground(new java.awt.Color(51, 51, 51));
         PanelDeDatosJP.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.black, new java.awt.Color(0, 0, 0), java.awt.Color.black, java.awt.Color.black));
@@ -120,12 +134,12 @@ public class GestorIJF extends javax.swing.JInternalFrame {
                     .addComponent(StockJL))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelDeDatosJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(stockJSp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(codigoJTF, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nombreJTF, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelDeDatosJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(rubroJCB, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(precioJTF, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(precioJTF, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(stockJSp, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
         PanelDeDatosJPLayout.setVerticalGroup(
@@ -217,7 +231,7 @@ public class GestorIJF extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(filtrarJCB, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 24, Short.MAX_VALUE))
+                .addGap(11, 14, Short.MAX_VALUE))
         );
         panelGestorLayout.setVerticalGroup(
             panelGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,7 +261,7 @@ public class GestorIJF extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelGestor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelGestor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,56 +272,123 @@ public class GestorIJF extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscarJBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarJBActionPerformed
-        // TODO add your handling code here:
-        boolean resultado = Funcion.buscarObjeto(codigoJTF, nombreJTF, rubroJCB);
+
         
         try {
+            boolean resultado = Funcion.buscarObjeto(codigoJTF, nombreJTF, rubroJCB);
+            
             if (resultado) {
                 Funcion.resetTable(tablaGestorJT);
                 Funcion.setRow(tablaGestorJT);
-            }else JOptionPane.showMessageDialog(rootPane, "No hay resultados para la busqueda.");
+            }else {
+                JOptionPane.showMessageDialog(rootPane, "No hay resultados para la busqueda.");
+            }
 
-            if (Funcion.getFLAG() < 0) Funcion.modificarObjeto(PanelDeDatosJP, buscarJB, guardarJB, eliminarJB, codigoJTF);
+            if (Funcion.getFLAG() < 0) {
+                Funcion.modificarObjeto(PanelDeDatosJP, buscarJB, guardarJB, eliminarJB, codigoJTF);
+            }
         }catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Solo valores numericos.");
         }
     }//GEN-LAST:event_buscarJBActionPerformed
 
     private void guardarJBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarJBActionPerformed
-        // TODO add your handling code here:
+        
+        
         try {
-            Funcion.capturarCampos(PanelDeDatosJP);
-            Funcion.crearObjeto();
+            boolean confirm = Funcion.checkField(PanelDeDatosJP);
 
-            if (Funcion.getFLAG() < 0) Funcion.modificarObjeto(PanelDeDatosJP, buscarJB, guardarJB, eliminarJB, codigoJTF);
-            else JOptionPane.showMessageDialog(rootPane, "El producto se a cargado con exito.");
+            if (Funcion.getFLAG() < 0) {
+                Funcion.capturarCampos(PanelDeDatosJP);
+                Funcion.crearObjeto();
+                
+                Funcion.modificarObjeto(PanelDeDatosJP, buscarJB, guardarJB, eliminarJB, codigoJTF);
+                
+                renombrarJB.setEnabled(true);
+            }else if (confirm) {
+                Funcion.capturarCampos(PanelDeDatosJP);
+                Funcion.crearObjeto();
+                
+                JOptionPane.showMessageDialog(rootPane, "El producto se a cargado con exito.");
+            }else {
+                
+                JOptionPane.showMessageDialog(rootPane, "Complete los campos para continuar.");
+            }
         }catch (NumberFormatException ex) {
+            
             JOptionPane.showMessageDialog(rootPane, "Ingrese los datos con los valores requeridos.");
         }
+        
+        Funcion.resetTable(tablaGestorJT);
+        Funcion.setRow(tablaGestorJT);
     }//GEN-LAST:event_guardarJBActionPerformed
 
     private void renombrarJBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_renombrarJBActionPerformed
-        // TODO add your handling code here:
+
+
+        renombrarJB.setEnabled(Funcion.getFLAG() > 0);
+        
         Funcion.modificarObjeto(PanelDeDatosJP, buscarJB, guardarJB, eliminarJB, codigoJTF);
     }//GEN-LAST:event_renombrarJBActionPerformed
 
     private void eliminarJBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarJBActionPerformed
-        // TODO add your handling code here:
+
+
         try {
-            if (Funcion.getFLAG() < 0) Funcion.modificarObjeto(PanelDeDatosJP, buscarJB, guardarJB, eliminarJB, codigoJTF);
-            else if (!codigoJTF.getText().equals("")) {
-                Funcion.buscarObjeto(codigoJTF, nombreJTF, rubroJCB);
-                Funcion.eliminarObjeto();
+            if (Funcion.getFLAG() < 0) {
+                Funcion.setFLAG(-2);
                 
-                JOptionPane.showMessageDialog(rootPane, "Producto eliminado.");
-            }else JOptionPane.showMessageDialog(rootPane, "Para eliminar primero ingrese el codigo");
+                Funcion.modificarObjeto(PanelDeDatosJP, buscarJB, guardarJB, eliminarJB, codigoJTF);
+                
+                renombrarJB.setEnabled(true);
+                
+                Funcion.resetTable(tablaGestorJT);
+            }
+            else if (!codigoJTF.getText().equals("")) {
+                boolean busqueda = Funcion.buscarObjeto(codigoJTF, nombreJTF, rubroJCB);
+                
+                if (busqueda) {
+                    Funcion.resetTable(tablaGestorJT);
+                    Funcion.setRow(tablaGestorJT);
+                    
+                    int confirm = JOptionPane.showConfirmDialog(rootPane, "Seguro que desea eliminar el producto?");
+
+                    if (confirm == 0) {
+                        Funcion.eliminarObjeto();
+
+                        JOptionPane.showMessageDialog(rootPane, "Producto eliminado.");
+                    }else {
+                        JOptionPane.showMessageDialog(rootPane, "Operacion cancelada.");
+                    }
+                }
+                
+                Funcion.resetTable(tablaGestorJT);
+            }else {
+                Funcion.setFLAG(4);
+                Funcion.resetTable(tablaGestorJT);
+                Funcion.setRow(tablaGestorJT);
+                
+                JOptionPane.showMessageDialog(rootPane, "Para eliminar primero ingrese el codigo");
+            }
         }catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(rootPane, "Valor ingresado incorrecto. Solo numeros.");
         }
+        
         Funcion.capturarCampos(PanelDeDatosJP);
     }//GEN-LAST:event_eliminarJBActionPerformed
 
     private void filtrarJCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtrarJCBActionPerformed
         // TODO add your handling code here:
+        if (Funcion.getFLAG() < 0) {
+            Funcion.setFLAG(-2);
+            
+            Funcion.modificarObjeto(PanelDeDatosJP, buscarJB, guardarJB, eliminarJB, codigoJTF);
+            
+            renombrarJB.setEnabled(true);
+        }
+        
+        Funcion.color(PanelDeDatosJP);
+        
         Funcion.setFLAG(2);
         
         Funcion.buscarObjeto(codigoJTF, nombreJTF, filtrarJCB);
