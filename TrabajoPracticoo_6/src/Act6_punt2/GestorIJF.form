@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
   <NonVisualComponents>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
@@ -53,13 +53,11 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="PanelDeDatosJP" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="eliminarJB" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="guardarJB" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="renombrarJB" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="buscarJB" min="-2" pref="107" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="eliminarJB" alignment="0" max="32767" attributes="0"/>
+                              <Component id="guardarJB" alignment="0" max="32767" attributes="0"/>
+                              <Component id="renombrarJB" alignment="0" max="32767" attributes="0"/>
+                              <Component id="buscarJB" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
@@ -70,7 +68,7 @@
                       </Group>
                       <Component id="jScrollPane1" alignment="0" min="-2" pref="490" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="11" pref="14" max="32767" attributes="0"/>
+                  <EmptySpace min="11" pref="15" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -384,6 +382,9 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Act6_punt2/img/lupa.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
           <Events>
@@ -400,6 +401,9 @@
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Act6_punt2/img/eliminar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Eliminar"/>
           </Properties>
@@ -418,6 +422,9 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Act6_punt2/img/guardar-el-archivo.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Guardar"/>
           </Properties>
           <Events>
@@ -434,6 +441,9 @@
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Act6_punt2/img/actualizar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Renombrar"/>
           </Properties>

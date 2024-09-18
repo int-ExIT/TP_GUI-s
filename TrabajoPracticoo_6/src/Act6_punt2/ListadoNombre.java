@@ -51,6 +51,7 @@ public class ListadoNombre extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaJT = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         panelPrinJP.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -82,6 +83,8 @@ public class ListadoNombre extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Listado por Nombre");
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Act6_punt2/img/lupa.png"))); // NOI18N
+
         javax.swing.GroupLayout panelPrinJPLayout = new javax.swing.GroupLayout(panelPrinJP);
         panelPrinJP.setLayout(panelPrinJPLayout);
         panelPrinJPLayout.setHorizontalGroup(
@@ -98,14 +101,19 @@ public class ListadoNombre extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
                                 .addComponent(busquedaJTF, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1))
+                            .addGroup(panelPrinJPLayout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(49, 49, 49)
+                                .addComponent(jLabel3)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         panelPrinJPLayout.setVerticalGroup(
             panelPrinJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPrinJPLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1)
+                .addGap(37, 37, 37)
+                .addGroup(panelPrinJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3))
                 .addGap(24, 24, 24)
                 .addGroup(panelPrinJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -160,6 +168,7 @@ public class ListadoNombre extends javax.swing.JInternalFrame {
     private javax.swing.JTextField busquedaJTF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelPrinJP;
     private javax.swing.JTable tablaJT;

@@ -171,6 +171,7 @@ public class GestorIJF extends javax.swing.JInternalFrame {
         buscarJB.setBackground(new java.awt.Color(51, 51, 255));
         buscarJB.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         buscarJB.setForeground(new java.awt.Color(255, 255, 255));
+        buscarJB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Act6_punt2/img/lupa.png"))); // NOI18N
         buscarJB.setText("Buscar");
         buscarJB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,6 +182,7 @@ public class GestorIJF extends javax.swing.JInternalFrame {
         eliminarJB.setBackground(new java.awt.Color(255, 51, 51));
         eliminarJB.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         eliminarJB.setForeground(new java.awt.Color(255, 255, 255));
+        eliminarJB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Act6_punt2/img/eliminar.png"))); // NOI18N
         eliminarJB.setText("Eliminar");
         eliminarJB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,6 +193,7 @@ public class GestorIJF extends javax.swing.JInternalFrame {
         guardarJB.setBackground(new java.awt.Color(51, 51, 255));
         guardarJB.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         guardarJB.setForeground(new java.awt.Color(255, 255, 255));
+        guardarJB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Act6_punt2/img/guardar-el-archivo.png"))); // NOI18N
         guardarJB.setText("Guardar");
         guardarJB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -201,6 +204,7 @@ public class GestorIJF extends javax.swing.JInternalFrame {
         renombrarJB.setBackground(new java.awt.Color(51, 51, 255));
         renombrarJB.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         renombrarJB.setForeground(new java.awt.Color(255, 255, 255));
+        renombrarJB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Act6_punt2/img/actualizar.png"))); // NOI18N
         renombrarJB.setText("Renombrar");
         renombrarJB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,19 +223,18 @@ public class GestorIJF extends javax.swing.JInternalFrame {
                     .addGroup(panelGestorLayout.createSequentialGroup()
                         .addComponent(PanelDeDatosJP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(eliminarJB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(guardarJB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(renombrarJB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(buscarJB, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(panelGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(eliminarJB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(guardarJB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(renombrarJB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buscarJB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(panelGestorLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(FiltrarJL)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(filtrarJCB, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 14, Short.MAX_VALUE))
+                .addGap(11, 15, Short.MAX_VALUE))
         );
         panelGestorLayout.setVerticalGroup(
             panelGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
