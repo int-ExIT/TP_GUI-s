@@ -21,8 +21,12 @@ public class miConexcion {
     
     public Connection buscarConexcion (){
         if(conexcion == null)
-            Class.forName("org.mariadb.jdbc.Driver");
-            conexcion = DriverManager.getConnection(url,usuario,password);
+           try{
+               Class.forName("org.mariadb.jdbc.Driver");
+               conexcion = DriverManager.getConnection(url,usuario,password);
+           }catch (SQLException | ClassNotFoundException ex){
+               System.out.println("No se puede Conectar, Error encontrado"+ ex);
+           }
     return conexcion;        
     }
     
